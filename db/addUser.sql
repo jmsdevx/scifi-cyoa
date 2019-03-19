@@ -1,7 +1,7 @@
 INSERT INTO users
-    (username, hash)
+    (username, hash, inprogress)
 VALUES
-    ($1, $2);
+    ($1, $2, $3);
 SELECT *
 FROM users
 WHERE username=$1;

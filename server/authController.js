@@ -5,9 +5,12 @@ const signup = async (req, res) => {
   const db = req.app.get("db");
   const hash = await bcrypt.hash(password, 12);
   try {
-    const response = await db.addUser([username, hash]);
-    req.session.user = { username: response[0].username };
-    res.status(200).json(response[0].username);
+    const response = await db.addUser([username, hash, false]);
+    req.session.user = {
+      username: response[0].username,
+      inprogress: response[0].inprogress
+    };
+    res.status(200).json(response);
   } catch (err) {
     console.log(err);
     res.status(401).json("An error occurred");
