@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Layout from "../../../layout/Layout";
 import { Link } from "react-router-dom";
+import SignUp from "../../../layout/SignUp";
 
 const Intro = () => (
   <Layout>
@@ -9,6 +10,7 @@ const Intro = () => (
     <Link to="/color">
       <button>Start Wizard</button>
     </Link>
+    <SignUp />
   </Layout>
 );
 

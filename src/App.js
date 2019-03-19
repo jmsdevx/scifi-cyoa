@@ -2,10 +2,16 @@ import React, { Component } from "react";
 import "./App.css";
 import routes from "./routes/routes";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "../src/ducks/store";
 
 class App extends Component {
   render() {
-    return <BrowserRouter>{routes}</BrowserRouter>;
+    return (
+      <Provider store={store}>
+        <BrowserRouter>{routes}</BrowserRouter>
+      </Provider>
+    );
   }
 }
 
