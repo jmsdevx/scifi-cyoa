@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { trySignup } from "../ducks/async";
+import { Link, Redirect } from "react-router-dom";
+import { tryLogin } from "../ducks/async";
 
-class Signup extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,9 +18,13 @@ class Signup extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.signup(this.state.username, this.state.password);
+    this.props.login(this.state.username, this.state.password);
   };
   render() {
+    console.log(this.props.user);
+    if (this.props.user.username) {
+      return <Redirect push to="/dashboard" />;
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -37,8 +42,9 @@ class Signup extends Component {
             placeholder="password"
             onChange={this.handleChange}
           />
-          <button>Sign Up</button>
+          <button>Login</button>
         </form>
+        <Link to="/signup">Sign Up!</Link>
       </div>
     );
   }
@@ -52,5 +58,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { signup: trySignup }
-)(Signup);
+  { login: tryLogin }
+)(Login);

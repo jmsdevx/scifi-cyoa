@@ -1,27 +1,32 @@
 import {
   SIGN_UP_PENDING,
   SIGN_UP_FULFILLED,
-  SIGN_UP_REJECTED
+  SIGN_UP_REJECTED,
+  LOGIN_PENDING,
+  LOGIN_FULFILLED,
+  LOGIN_REJECTED
 } from "./constants";
 
-const initialState = {
+export const initialState = {
   user: {},
   pending: false,
-  error: ""
+  error: false
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case `${SIGN_UP_PENDING}`:
+    case SIGN_UP_PENDING:
       return { ...state, pending: action.pending, error: action.error };
-    case `${SIGN_UP_FULFILLED}`:
+    case SIGN_UP_FULFILLED:
+      return { ...state, pending: action.pending, user: action.payload };
+    case SIGN_UP_REJECTED:
+      return { ...state, pending: action.pending, error: action.error };
+    case `${LOGIN_PENDING}`:
+      return { ...state, pending: action.pending, error: action.error };
+    case LOGIN_FULFILLED:
       return { ...state, pending: action.pending, user: action.payload.data };
-    case `${SIGN_UP_REJECTED}`:
-      return { ...state, pending: action.pending, error: action.error };
-    // case `${LOGIN}`:
-    //   return { ...state, user: action.payload.data };
-    // case `${LOGIN}_REJECTED`:
-    //   return { ...state, error: "Username OR password is incorrect" };
+    case LOGIN_REJECTED:
+      return { ...state, error: "Username OR password is incorrect" };
     // case `${GET_USER}_FULFILLED`:
     //   return { ...state, user: action.payload.data };
     default:

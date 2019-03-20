@@ -9,17 +9,19 @@ import LovedOne from "../components/wizard/LovedOne/LovedOne";
 import Race from "../components/wizard/Race/Race";
 import Review from "../components/wizard/Review/Review";
 import PageNotFound from "../layout/PageNotFound";
+import Dashboard from "../layout/Dashboard";
 
 export default (
   <Switch>
     <Route path="/" exact component={Intro} />
+    <Route path="/dashboard" component={Dashboard} />
     <Route path="/color" component={Color} />
-    <Route path="/Race" component={Race} />
-    <Route path="/Archetype" component={Archetype} />
-    <Route path="/Fear" component={Fear} />
-    <Route path="/Companion" component={Companion} />
-    <Route path="/LovedOne" component={LovedOne} />
-    <Route path="/Review" component={Review} />
+    <Route path="/race" component={Race} />
+    <Route path="/archetype" component={Archetype} />
+    <Route path="/fear" component={Fear} />
+    <Route path="/companion" component={Companion} />
+    <Route path="/lovedOne" component={LovedOne} />
+    <Route path="/review" component={Review} />
     <Route component={PageNotFound} />
   </Switch>
 );

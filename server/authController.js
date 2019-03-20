@@ -10,7 +10,7 @@ const signup = async (req, res) => {
       username: response[0].username,
       inprogress: response[0].inprogress
     };
-    res.status(200).json(response);
+    res.status(200).json(response.data);
   } catch (err) {
     console.log(err);
     res.status(401).json("An error occurred");
@@ -30,7 +30,10 @@ const login = (req, res) => {
           res.status(401).json({ error: "Incorrect password" });
         } else {
           console.log(response[0].username);
-          req.session.user = { username: response[0].username };
+          req.session.user = {
+            username: response[0].username,
+            inprogress: response[0].inprogress
+          };
           res.status(200).json({ username: response[0].username });
         }
       }
