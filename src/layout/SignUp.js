@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { trySignup } from "../ducks/async";
+import { trySignup } from "../ducks/auth/auth_async";
 import { Redirect } from "react-router-dom";
+import { resetError } from "../ducks/auth/auth_sync";
 
 class Signup extends Component {
   constructor(props) {
@@ -19,11 +20,16 @@ class Signup extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.signup(this.state.username, this.state.password);
+    this.setState({ username: "", password: "" });
   };
   render() {
     console.log(this.props.user);
     if (this.props.user.username) {
       return <Redirect push to="/dashboard" />;
+    }
+    if (this.props.error) {
+      alert("Try again!");
+      this.props.reset();
     }
     return (
       <div>
@@ -51,11 +57,13 @@ class Signup extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    error: state.error,
+    pending: state.pending
   };
 };
 
 export default connect(
   mapStateToProps,
-  { signup: trySignup }
+  { signup: trySignup, reset: resetError }
 )(Signup);

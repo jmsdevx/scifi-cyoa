@@ -7,8 +7,9 @@ import {
   LOGIN_REJECTED,
   GET_USER_PENDING,
   GET_USER_FULFILLED,
-  GET_USER_REJECTED
-} from "./constants";
+  GET_USER_REJECTED,
+  RESET_ERROR
+} from "../constants";
 
 export const initialState = {
   user: {},
@@ -19,25 +20,30 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SIGN_UP_PENDING:
-      return { ...state, pending: action.pending, error: action.error };
+      return { ...state, pending: action.pending };
     case SIGN_UP_FULFILLED:
       return { ...state, pending: action.pending, user: action.payload.data };
     case SIGN_UP_REJECTED:
       return { ...state, pending: action.pending, error: action.error };
     case `${LOGIN_PENDING}`:
-      return { ...state, pending: action.pending, error: action.error };
+      return { ...state, pending: action.pending };
     case LOGIN_FULFILLED:
       return { ...state, pending: action.pending, user: action.payload.data };
     case LOGIN_REJECTED:
       return { ...state, pending: action.pending, error: action.error };
     case GET_USER_PENDING:
-      return { ...state, pending: action.pending, error: action.error };
+      return { ...state, pending: action.pending };
     case GET_USER_FULFILLED:
       return { ...state, pending: action.pending, user: action.payload.data };
     case GET_USER_REJECTED:
       return {
         ...state,
         pending: action.pending,
+        error: action.error
+      };
+    case RESET_ERROR:
+      return {
+        ...state,
         error: action.error
       };
     default:

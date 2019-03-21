@@ -8,7 +8,7 @@ import {
   getUserPending,
   getUserFulfilled,
   getUserRejected
-} from "./sync";
+} from "./auth_sync";
 import axios from "axios";
 
 export function trySignup(username, password) {

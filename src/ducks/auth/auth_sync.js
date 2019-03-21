@@ -7,14 +7,14 @@ import {
   LOGIN_REJECTED,
   GET_USER_PENDING,
   GET_USER_FULFILLED,
-  GET_USER_REJECTED
-} from "./constants";
+  GET_USER_REJECTED,
+  RESET_ERROR
+} from "../constants";
 
 export function signupPending() {
   return {
     type: SIGN_UP_PENDING,
-    pending: true,
-    error: false
+    pending: true
   };
 }
 
@@ -37,8 +37,7 @@ export function signupRejected() {
 export function loginPending() {
   return {
     type: LOGIN_PENDING,
-    pending: true,
-    error: false
+    pending: true
   };
 }
 
@@ -61,8 +60,7 @@ export function loginRejected() {
 export function getUserPending() {
   return {
     type: GET_USER_PENDING,
-    pending: true,
-    error: false
+    pending: true
   };
 }
 
@@ -79,5 +77,12 @@ export function getUserRejected() {
     type: GET_USER_REJECTED,
     error: true,
     pending: false
+  };
+}
+
+export function resetError() {
+  return {
+    type: RESET_ERROR,
+    error: false
   };
 }

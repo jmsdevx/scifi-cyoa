@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUser } from "../ducks/async";
+import { getUser } from "../ducks/auth/auth_async";
 
 class Dashboard extends Component {
   componentDidMount() {
