@@ -1,28 +1,37 @@
 import React, { Component } from "react";
 import Layout from "./Layout";
-import { Link } from "react-router-dom";
 import Signup from "./SignUp";
 import Login from "./Login";
+import Modal from "./Modal";
 
 class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: false,
-      signup: false
+      type: "",
+      show: false
     };
   }
 
-  toggler(type, other) {
-    this.setState({ [type]: !this.state[type], [other]: false });
-  }
+  showModal = type => {
+    this.setState({ type: type }, () => this.setState({ show: true }));
+  };
+
+  closeModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
-    return (
+    return this.state.show ? (
+      <Modal handleClose={this.closeModal}>
+        {this.state.type === "login" ? <Login /> : <Signup />}
+      </Modal>
+    ) : (
       <Layout>
         <h1>Title</h1>
         <p>Introductory Information</p>
-        <button onClick={() => this.toggler("login", "signup")}>Login</button>
-        <button onClick={() => this.toggler("signup", "login")}>Signup</button>
+        <button onClick={() => this.showModal("login")}>Login</button>
+        <button onClick={() => this.showModal("signup")}>Signup</button>
         {this.state.login ? <Login /> : null}
         {this.state.signup ? <Signup /> : null}
       </Layout>
