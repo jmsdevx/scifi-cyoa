@@ -58,16 +58,26 @@ export function loginRejected() {
   };
 }
 
-// export function login(username, password) {
-//   return {
-//     type: LOGIN,
-//     payload: axios.post("/auth/login", { username, password })
-//   };
-// }
+export function getUserPending() {
+  return {
+    type: GET_USER_PENDING,
+    pending: true,
+    error: false
+  };
+}
 
-// export function getUser() {
-//   return {
-//     type: GET_USER,
-//     payload: axios.get("/auth/user")
-//   };
-// }
+export function getUserFulfilled(user) {
+  return {
+    type: GET_USER_FULFILLED,
+    pending: false,
+    payload: user
+  };
+}
+
+export function getUserRejected() {
+  return {
+    type: GET_USER_REJECTED,
+    error: true,
+    pending: false
+  };
+}

@@ -44,7 +44,6 @@ class Login extends Component {
           />
           <button>Login</button>
         </form>
-        <Link to="/signup">Sign Up!</Link>
       </div>
     );
   }

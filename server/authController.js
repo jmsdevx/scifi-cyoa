@@ -10,7 +10,7 @@ const signup = async (req, res) => {
       username: response[0].username,
       inprogress: response[0].inprogress
     };
-    res.status(200).json(response.data);
+    res.status(200).json({ username: response[0].username });
   } catch (err) {
     console.log(err);
     res.status(401).json("An error occurred");

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { trySignup } from "../ducks/async";
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
   constructor(props) {
@@ -20,6 +21,10 @@ class Signup extends Component {
     this.props.signup(this.state.username, this.state.password);
   };
   render() {
+    console.log(this.props.user);
+    if (this.props.user.username) {
+      return <Redirect push to="/dashboard" />;
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

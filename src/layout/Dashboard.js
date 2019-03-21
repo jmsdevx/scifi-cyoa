@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { getUser } from "../ducks/reducer";
+import { getUser } from "../ducks/async";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -17,6 +17,6 @@ class Dashboard extends Component {
 const mapStateToProps = state => state;
 
 export default connect(
-  mapStateToProps
-  //   { getUser }
+  mapStateToProps,
+  { getUser }
 )(Dashboard);

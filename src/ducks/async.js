@@ -4,7 +4,10 @@ import {
   signupRejected,
   loginPending,
   loginFulfilled,
-  loginRejected
+  loginRejected,
+  getUserPending,
+  getUserFulfilled,
+  getUserRejected
 } from "./sync";
 import axios from "axios";
 
@@ -36,6 +39,19 @@ export function tryLogin(username, password) {
       dispatch(loginFulfilled(response));
     } catch {
       dispatch(loginRejected());
+    }
+  };
+}
+
+export function getUser() {
+  return async dispatch => {
+    await dispatch(getUserPending());
+
+    try {
+      const response = await axios.get("/auth/user");
+      dispatch(getUserFulfilled(response));
+    } catch {
+      dispatch(getUserRejected());
     }
   };
 }
