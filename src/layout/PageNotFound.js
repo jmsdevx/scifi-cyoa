@@ -1,9 +1,10 @@
 import React from "react";
+import Layout from "./Layout";
 
 const PageNotFound = () => (
-  <div>
+  <Layout>
     <h1>404: Page Not Found</h1>
-  </div>
+  </Layout>
 );
 
 export default PageNotFound;

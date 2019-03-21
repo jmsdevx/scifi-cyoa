@@ -20,7 +20,11 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
 
 export default connect(
   mapStateToProps,
