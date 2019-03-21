@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Layout from "./Layout";
 import Signup from "./SignUp";
 import Login from "./Login";
 import Modal from "./Modal";
+import { getUser, logout } from "../ducks/auth/auth_async";
 
 class Splash extends Component {
   constructor(props) {
@@ -30,13 +32,29 @@ class Splash extends Component {
       <Layout>
         <h1>Title</h1>
         <p>Introductory Information</p>
-        <button onClick={() => this.showModal("login")}>Login</button>
-        <button onClick={() => this.showModal("signup")}>Signup</button>
-        {this.state.login ? <Login /> : null}
-        {this.state.signup ? <Signup /> : null}
+        {this.props.user.username ? (
+          <div>
+            <h2>{this.props.user.username}, You are logged in!</h2>
+            <button onClick={this.props.logout}>Log out?</button>
+          </div>
+        ) : (
+          <div>
+            <button onClick={() => this.showModal("login")}>Login</button>
+            <button onClick={() => this.showModal("signup")}>Signup</button>
+          </div>
+        )}
       </Layout>
     );
   }
 }
 
-export default Splash;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getUser: getUser, logout: logout }
+)(Splash);

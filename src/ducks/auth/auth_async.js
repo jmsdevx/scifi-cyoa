@@ -7,7 +7,8 @@ import {
   loginRejected,
   getUserPending,
   getUserFulfilled,
-  getUserRejected
+  getUserRejected,
+  resetUser
 } from "./auth_sync";
 import axios from "axios";
 
@@ -53,5 +54,16 @@ export function getUser() {
     } catch {
       dispatch(getUserRejected());
     }
+  };
+}
+
+export function logout() {
+  return async dispatch => {
+     try {
+       axios.get("/auth/logout");
+    } catch {
+      alert("logout error");
+    }
+    dispatch(resetUser());
   };
 }

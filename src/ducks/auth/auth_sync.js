@@ -8,7 +8,8 @@ import {
   GET_USER_PENDING,
   GET_USER_FULFILLED,
   GET_USER_REJECTED,
-  RESET_ERROR
+  RESET_ERROR,
+  RESET_USER
 } from "../constants";
 
 export function signupPending() {
@@ -84,5 +85,11 @@ export function resetError() {
   return {
     type: RESET_ERROR,
     error: false
+  };
+}
+
+export function resetUser() {
+  return {
+    type: RESET_USER
   };
 }

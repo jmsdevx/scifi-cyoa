@@ -8,7 +8,8 @@ import {
   GET_USER_PENDING,
   GET_USER_FULFILLED,
   GET_USER_REJECTED,
-  RESET_ERROR
+  RESET_ERROR,
+  RESET_USER
 } from "../constants";
 
 export const initialState = {
@@ -46,6 +47,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         error: action.error
       };
+    case RESET_USER:
+      return { ...state, user: { username: "" } };
     default:
       return state;
   }

@@ -49,8 +49,14 @@ const getUser = (req, res) => {
   }
 };
 
+const logout = (req, res) => {
+  req.session.destroy();
+  console.log("session ended");
+};
+
 module.exports = {
   signup,
   login,
-  getUser
+  getUser,
+  logout
 };

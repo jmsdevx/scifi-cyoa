@@ -15,3 +15,4 @@ export const GET_USER_REJECTED = "GET_USER_REJECTED";
 
 //resets
 export const RESET_ERROR = "RESET_ERROR";
+export const RESET_USER = "RESET_USER";

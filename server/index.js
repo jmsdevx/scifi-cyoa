@@ -4,7 +4,7 @@ const { json } = require("body-parser");
 const massive = require("massive");
 const session = require("express-session");
 const app = express();
-const { signup, login, getUser } = require("./authController");
+const { signup, login, getUser, logout } = require("./authController");
 
 app.use(json());
 
@@ -28,6 +28,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 app.post("/auth/signup", signup);
 app.post("/auth/login", login);
 app.get("/auth/user", getUser);
+app.get("/auth/logout", logout);
 
 app.listen(4000, () => {
   console.log(`Listening on ${process.env.EXPRESS_PORT}`);

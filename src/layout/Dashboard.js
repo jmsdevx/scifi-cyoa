@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser } from "../ducks/auth/auth_async";
+import Layout from "./Layout";
 
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getUser();
   }
   render() {
-    if (!this.props.user.username) {
-      return <h1>Error: Please Log In</h1>;
-    }
-    return <h1>{this.props.user.username}'s Account</h1>;
+    return (
+      <Layout>
+        {!this.props.user.username ? (
+          <h1>Please Log In To View Your Dashboard</h1>
+        ) : (
+          <h1>{this.props.user.username}'s Account</h1>
+        )}
+      </Layout>
+    );
   }
 }
 
