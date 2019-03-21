@@ -59,11 +59,12 @@ export function getUser() {
 
 export function logout() {
   return async dispatch => {
-     try {
-       axios.get("/auth/logout");
+    try {
+      axios.get("/auth/logout");
     } catch {
       alert("logout error");
     }
     dispatch(resetUser());
+    // props.history.push("/")
   };
 }

@@ -39,8 +39,7 @@ export default function reducer(state = initialState, action) {
     case GET_USER_REJECTED:
       return {
         ...state,
-        pending: action.pending,
-        error: action.error
+        pending: action.pending
       };
     case RESET_ERROR:
       return {

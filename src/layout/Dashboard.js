@@ -11,7 +11,7 @@ class Dashboard extends Component {
     return (
       <Layout>
         {!this.props.user.username ? (
-          <h1>Please Log In To View Your Dashboard</h1>
+          this.props.history.push("/")
         ) : (
           <h1>{this.props.user.username}'s Account</h1>
         )}
