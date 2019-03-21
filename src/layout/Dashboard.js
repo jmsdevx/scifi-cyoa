@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser } from "../ducks/auth/auth_async";
 import Layout from "./Layout";
+import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -15,6 +16,9 @@ class Dashboard extends Component {
         ) : (
           <h1>{this.props.user.username}'s Account</h1>
         )}
+        <Link to="/wizard/color">
+          <button>Create Character</button>
+        </Link>
       </Layout>
     );
   }
