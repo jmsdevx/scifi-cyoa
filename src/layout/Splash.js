@@ -30,17 +30,25 @@ class Splash extends Component {
       </Modal>
     ) : (
       <Layout>
-        <h1>Title</h1>
-        <p>Introductory Information</p>
         {this.props.user.username ? (
           <div>
             <h2>{this.props.user.username}, You are logged in!</h2>
             <button onClick={this.props.logout}>Log out?</button>
           </div>
         ) : (
-          <div>
-            <button onClick={() => this.showModal("login")}>Login</button>
-            <button onClick={() => this.showModal("signup")}>Signup</button>
+          <div className="splashButtons">
+            <button
+              className="logbutton"
+              onClick={() => this.showModal("login")}
+            >
+              Log In
+            </button>
+            <button
+              className="signbutton"
+              onClick={() => this.showModal("signup")}
+            >
+              Sign Up
+            </button>
           </div>
         )}
       </Layout>

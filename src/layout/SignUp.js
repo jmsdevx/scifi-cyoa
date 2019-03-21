@@ -19,8 +19,12 @@ class Signup extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.signup(this.state.username, this.state.password);
-    this.setState({ username: "", password: "" });
+    if (this.state.username !== "" && this.state.password !== "") {
+      this.props.signup(this.state.username, this.state.password);
+      this.setState({ username: "", password: "" });
+    } else {
+      alert("Empty field");
+    }
   };
   render() {
     console.log(this.props.user);
@@ -45,7 +49,7 @@ class Signup extends Component {
             value={this.state.password}
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="Password"
             onChange={this.handleChange}
           />
           <button>Sign Up</button>

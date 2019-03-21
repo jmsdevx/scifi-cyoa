@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+$fira-sans: "Fira Sans", sans-serif;
+$dark: #4c5270;
+$main: #36eee0;
+$light: #bcece0;
+$action: #f652a0;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fira-sans;
+}
+
+body {
+  background: $dark;
+  text-align: center;
+  color: whitesmoke;
+}
+
+input {
+  height: 3rem;
+  font-size: 1rem;
+}
+
+nav {
+  height: 6rem;
+  padding: 2rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 0 auto;
+  }
+
+  button {
+    height: 2rem;
+    width: 4rem;
+    border-radius: 9999em;
+    background: $action;
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: $dark;
+
+  .main {
+    position: fixed;
+    background: $light;
+    width: 80%;
+    height: auto;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  button {
+    height: 2rem;
+    width: 5rem;
+    border-radius: 9999em;
+    margin: 0.25rem;
+    background: $main;
+  }
+
+  .closebutton {
+    background: $action;
+    color: white;
+  }
+}
+
+.splashButtons {
+  button {
+    height: 2rem;
+    width: 5rem;
+    border-radius: 9999em;
+    margin: 1rem;
+    background: $action;
+  }
+
+  .signbutton {
+    color: white;
+  }
+
+  .logbutton {
+    background: $main;
+  }
+}

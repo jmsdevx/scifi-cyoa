@@ -1,10 +1,12 @@
 import React from "react";
 
 const Modal = props => (
-  <div>
-    <section>
+  <div className="modal">
+    <section className="main">
       {props.children}
-      <button onClick={props.handleClose}>close</button>
+      <button className="closebutton" onClick={props.handleClose}>
+        Back
+      </button>
     </section>
   </div>
 );

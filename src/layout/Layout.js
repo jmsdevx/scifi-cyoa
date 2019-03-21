@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 
 const Layout = props => (
-  <div>
+  <div className="layout">
     <Nav />
     {props.children}
   </div>

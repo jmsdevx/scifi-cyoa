@@ -9,7 +9,7 @@ const Nav = props => (
       <button onClick={props.logout}>Logout</button>
     ) : null}
     {props.location}
-    <Link to="/dashboard">Dashboard</Link>
+    <Link to="/dashboard">Scifi CYOA</Link>
   </nav>
 );
 
