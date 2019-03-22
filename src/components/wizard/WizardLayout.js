@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import wizardRoutes from "../../routes/wizardRoutes";
 import nextRoute from "./nextRoute";
+import { Link } from "react-router-dom";
 
 class WizardLayout extends Component {
   constructor(props) {
@@ -30,11 +31,20 @@ class WizardLayout extends Component {
   render() {
     return (
       <div>
+        <Link to="/dashboard">
+          <button>Home</button>
+        </Link>
         <h1>Choose:</h1>
+
         {wizardRoutes}
         <div>
-          <button onClick={() => this.navigate("back")}>Back</button>
-          <button onClick={() => this.navigate("next")}>Next</button>
+          {this.state.index > 0 ? (
+            <button onClick={() => this.navigate("back")}>Back</button>
+          ) : null}
+
+          {this.state.index < 6 ? (
+            <button onClick={() => this.navigate("next")}>Next</button>
+          ) : null}
         </div>
       </div>
     );

@@ -61,9 +61,9 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
-    error: state.error,
-    pending: state.pending
+    user: state.authReducer.user,
+    error: state.authReducer.error,
+    pending: state.authReducer.pending
   };
 };
 

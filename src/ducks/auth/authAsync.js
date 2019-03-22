@@ -15,7 +15,6 @@ import axios from "axios";
 export function trySignup(username, password) {
   return async dispatch => {
     await dispatch(signupPending());
-
     try {
       const response = await axios.post("/auth/signup", {
         username: username,
@@ -31,7 +30,6 @@ export function trySignup(username, password) {
 export function tryLogin(username, password) {
   return async dispatch => {
     await dispatch(loginPending());
-
     try {
       const response = await axios.post("/auth/login", {
         username: username,
@@ -47,7 +45,6 @@ export function tryLogin(username, password) {
 export function getUser() {
   return async dispatch => {
     await dispatch(getUserPending());
-
     try {
       const response = await axios.get("/auth/user");
       dispatch(getUserFulfilled(response));
@@ -65,6 +62,5 @@ export function logout() {
       alert("logout error");
     }
     dispatch(resetUser());
-    // props.history.push("/")
   };
 }

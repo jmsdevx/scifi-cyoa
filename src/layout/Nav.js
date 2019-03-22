@@ -8,13 +8,13 @@ const Nav = props => (
     {props.user.username ? (
       <button onClick={props.logout}>Logout</button>
     ) : null}
-    {props.location}
+
     <Link to="/dashboard">Scifi CYOA</Link>
   </nav>
 );
 
-const mapStateToProps = (state, ownProps) => {
-  return { user: state.user, location: ownProps.location };
+const mapStateToProps = state => {
+  return { user: state.authReducer.user };
 };
 
 export default connect(

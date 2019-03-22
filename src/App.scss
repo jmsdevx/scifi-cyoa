@@ -23,6 +23,14 @@ input {
   height: 3rem;
   font-size: 1rem;
 }
+button {
+  height: 2rem;
+  width: 4rem;
+  border-radius: 9999em;
+  background: $action;
+  font-size: 1rem;
+  color: white;
+}
 
 nav {
   height: 6rem;
@@ -36,15 +44,6 @@ nav {
     text-decoration: none;
     color: whitesmoke;
     margin: 0 auto;
-  }
-
-  button {
-    height: 2rem;
-    width: 4rem;
-    border-radius: 9999em;
-    background: $action;
-    font-size: 1rem;
-    color: white;
   }
 }
 

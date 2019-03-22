@@ -1,7 +1,8 @@
 const bcrypt = require("bcryptjs");
 
 const signup = async (req, res) => {
-  const { username, password } = req.body;
+  const username = req.body.username.trim();
+  const password = req.body.password.trim();
   const db = req.app.get("db");
   const hash = await bcrypt.hash(password, 12);
   try {
@@ -17,7 +18,8 @@ const signup = async (req, res) => {
   }
 };
 const login = (req, res) => {
-  const { username, password } = req.body;
+  const username = req.body.username.trim();
+  const password = req.body.password.trim();
   const db = req.app.get("db");
   db.findUser(username)
     .then(async response => {
