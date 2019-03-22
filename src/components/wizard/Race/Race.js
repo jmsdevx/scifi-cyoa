@@ -4,7 +4,7 @@ import { saveRace } from "../../../ducks/wiz/wizSync";
 
 const Race = props => (
   <div>
-    <h1>Race</h1>
+    <h1>Race: {props.race ? props.race : null}</h1>
     <button onClick={() => props.save("Terran")}>Terran</button>
     <button onClick={() => props.save("Insect")}>Insect</button>
     <button onClick={() => props.save("Tree")}>Tree</button>

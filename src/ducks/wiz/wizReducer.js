@@ -34,22 +34,22 @@ export default function reducer(state = initialState, action) {
     case SAVE_ARCHETYPE:
       return {
         ...state,
-        charData: action.payload
+        charData: { ...state.charData, ...action.payload }
       };
     case SAVE_FEAR:
       return {
         ...state,
-        charData: action.payload
+        charData: { ...state.charData, ...action.payload }
       };
     case SAVE_PET:
       return {
         ...state,
-        charData: action.payload
+        charData: { ...state.charData, ...action.payload }
       };
     case SAVE_FAMILY:
       return {
         ...state,
-        charData: action.payload
+        charData: { ...state.charData, ...action.payload }
       };
     case SUBMIT_CHARACTER_PENDING:
       return {

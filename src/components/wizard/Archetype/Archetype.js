@@ -23,9 +23,15 @@ class Archetype extends Component {
   };
 
   render() {
+    const { archetype } = this.props;
     return (
       <div>
-        <h3>Archetype</h3>
+        <h3>
+          Archetype:{" "}
+          {archetype
+            ? archetype.charAt(0).toUpperCase() + archetype.slice(1)
+            : null}
+        </h3>
         <ArchetypeDisplay
           save={this.props.save}
           archetypes={this.state.archetypes}
