@@ -59,13 +59,15 @@ export function charPending() {
 export function charFilled(allChars) {
   return {
     type: SUBMIT_CHARACTER_FULFILLED,
-    payload: allChars.data
+    payload: allChars.data,
+    pending: false
   };
 }
 
 export function charRejected() {
   return {
     type: SUBMIT_CHARACTER_REJECTED,
+    pending: false,
     error: true
   };
 }

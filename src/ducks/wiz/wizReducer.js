@@ -24,32 +24,32 @@ export default function reducer(state = initialState, action) {
     case SAVE_COLOR:
       return {
         ...state,
-        charData: { color: action.payload }
+        charData: { ...state.charData, ...action.payload }
       };
     case SAVE_RACE:
       return {
         ...state,
-        charData: { race: action.payload }
+        charData: { ...state.charData, ...action.payload }
       };
     case SAVE_ARCHETYPE:
       return {
         ...state,
-        charData: { archetype: action.payload }
+        charData: action.payload
       };
     case SAVE_FEAR:
       return {
         ...state,
-        charData: { fear: action.payload }
+        charData: action.payload
       };
     case SAVE_PET:
       return {
         ...state,
-        charData: { pet: action.payload }
+        charData: action.payload
       };
     case SAVE_FAMILY:
       return {
         ...state,
-        charData: { family: action.payload }
+        charData: action.payload
       };
     case SUBMIT_CHARACTER_PENDING:
       return {
