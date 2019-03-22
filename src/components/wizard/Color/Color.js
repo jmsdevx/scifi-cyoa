@@ -4,7 +4,7 @@ import { saveColor } from "../../../ducks/wiz/wizSync";
 
 const Color = props => (
   <div>
-    <h1>Color: {props.color ? props.color : null} </h1>
+    <h3>Color: {props.color ? props.color : null} </h3>
     <button onClick={() => props.save("Red")}>Red</button>
     <button onClick={() => props.save("Blue")}>Blue</button>
     <button onClick={() => props.save("Green")}>Green</button>

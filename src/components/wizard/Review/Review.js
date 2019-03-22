@@ -1,5 +1,5 @@
 import React from "react";
 
-const Archetype = () => <div>Archetype</div>;
+const Review = () => <div>Review</div>;
 
-export default Archetype;
+export default Review;
