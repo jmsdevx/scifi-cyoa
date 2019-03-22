@@ -30,6 +30,9 @@ const Review = props => {
         <h4>Connection: </h4>
         <h5>{props.charData.family}</h5>
       </span>
+      <button onClick={() => props.submit(props.charData, props.username)}>
+        Submit
+      </button>
     </div>
   );
 };
@@ -39,7 +42,8 @@ const mapStateToProps = state => {
     charData: state.wizReducer.charData,
     allChars: state.wizReducer.allChars,
     pending: state.wizReducer.pending,
-    error: state.wizReducer.error
+    error: state.wizReducer.error,
+    username: state.authReducer.user.username
   };
 };
 

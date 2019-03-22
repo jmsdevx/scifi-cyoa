@@ -5,6 +5,7 @@ const massive = require("massive");
 const session = require("express-session");
 const app = express();
 const { signup, login, getUser, logout } = require("./authController");
+const { submitChar } = require("./wizController");
 
 app.use(json());
 
@@ -24,11 +25,14 @@ massive(process.env.CONNECTION_STRING).then(db => {
   console.log("Database connected");
 });
 
-//endpoints
+//auth endpoints
 app.post("/auth/signup", signup);
 app.post("/auth/login", login);
 app.get("/auth/user", getUser);
 app.get("/auth/logout", logout);
+
+//characters endpoints
+app.post("/wizard/submit", submitChar);
 
 app.listen(4000, () => {
   console.log(`Listening on ${process.env.EXPRESS_PORT}`);

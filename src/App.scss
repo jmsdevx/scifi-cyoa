@@ -27,7 +27,7 @@ button {
   height: 2rem;
   width: 4rem;
   border-radius: 9999em;
-  background: $action;
+  background: $main;
   font-size: 1rem;
   color: white;
 }
@@ -124,7 +124,8 @@ nav {
   span {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+
     width: 80%;
     margin: 1rem 0;
   }
@@ -132,7 +133,7 @@ nav {
   h4 {
     text-decoration: underline;
     font-size: 1.5rem;
-    color: $light
+    color: $light;
   }
 
   h5 {
