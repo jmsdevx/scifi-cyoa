@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { tryLogin } from "../ducks/auth/auth_async";
-import { resetError } from "../ducks/auth/auth_sync";
+import { tryLogin } from "../ducks/auth/authAsync";
+import { resetError } from "../ducks/auth/authSync";
 
 class Login extends Component {
   constructor(props) {

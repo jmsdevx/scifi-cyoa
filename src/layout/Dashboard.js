@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUser } from "../ducks/auth/auth_async";
+import { getUser } from "../ducks/auth/authAsync";
 import Layout from "./Layout";
 import { Link } from "react-router-dom";
 

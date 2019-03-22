@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import Signup from "./SignUp";
 import Login from "./Login";
 import Modal from "./Modal";
-import { getUser, logout } from "../ducks/auth/auth_async";
+import { getUser, logout } from "../ducks/auth/authAsync";
 
 class Splash extends Component {
   constructor(props) {

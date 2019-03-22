@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { logout } from "../ducks/auth/auth_async";
+import { logout } from "../ducks/auth/authAsync";
 
 const Nav = props => (
   <nav>

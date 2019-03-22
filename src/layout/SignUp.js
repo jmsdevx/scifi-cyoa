@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { trySignup } from "../ducks/auth/auth_async";
+import { trySignup } from "../ducks/auth/authAsync";
 import { Redirect } from "react-router-dom";
-import { resetError } from "../ducks/auth/auth_sync";
+import { resetError } from "../ducks/auth/authSync";
 
 class Signup extends Component {
   constructor(props) {

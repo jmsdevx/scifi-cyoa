@@ -9,7 +9,7 @@ import {
   getUserFulfilled,
   getUserRejected,
   resetUser
-} from "./auth_sync";
+} from "./authSync";
 import axios from "axios";
 
 export function trySignup(username, password) {
