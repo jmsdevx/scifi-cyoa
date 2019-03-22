@@ -110,3 +110,33 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
+.review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-size: 3rem;
+  }
+
+  span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    margin: 1rem 0;
+  }
+
+  h4 {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    color: $light
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    color: $main;
+  }
+}
