@@ -1,5 +1,5 @@
 import React from "react";
 
-const Archetype = () => <div>Archetype</div>;
+const Companion = () => <div>Companion</div>;
 
-export default Archetype;
+export default Companion;

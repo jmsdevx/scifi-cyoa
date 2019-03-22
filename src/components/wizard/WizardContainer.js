@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import wizardRoutes from "../../routes/wizardRoutes";
 
+
 class Wizard extends Component {
   constructor(props) {
     super(props);

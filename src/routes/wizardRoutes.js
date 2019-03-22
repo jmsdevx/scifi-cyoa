@@ -14,8 +14,8 @@ export default (
     <Route path="/wizard/race" component={Race} />
     <Route path="/wizard/archetype" component={Archetype} />
     <Route path="/wizard/fear" component={Fear} />
-    <Route path="/wizard/companion" component={Companion} />
-    <Route path="/wizard/lovedOne" component={LovedOne} />
+    <Route path="/wizard/pet" component={Companion} />
+    <Route path="/wizard/family" component={LovedOne} />
     <Route path="/wizard/review" component={Review} />
   </Switch>
 );

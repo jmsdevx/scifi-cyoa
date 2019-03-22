@@ -1,5 +1,5 @@
 import React from "react";
 
-const Archetype = () => <div>Archetype</div>;
+const Race = () => <div>Race</div>;
 
-export default Archetype;
+export default Race;
