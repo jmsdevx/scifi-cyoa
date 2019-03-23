@@ -9,14 +9,16 @@ import {
   SUBMIT_CHARACTER_FULFILLED,
   SUBMIT_CHARACTER_REJECTED,
   RESET_CHARACTER,
-  RESET_ERROR
+  RESET_ERROR,
+  RESET_REDIRECT
 } from "../constants";
 
 export const initialState = {
   charData: {},
   pending: false,
   error: false,
-  allChars: []
+  allChars: [],
+  redirect: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -59,7 +61,9 @@ export default function reducer(state = initialState, action) {
     case SUBMIT_CHARACTER_FULFILLED:
       return {
         ...state,
-        allChars: action.payload
+        allChars: action.payload,
+        redirect: action.redirect,
+        charData: {}
       };
     case SUBMIT_CHARACTER_REJECTED:
       return {
@@ -75,6 +79,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         error: action.error
+      };
+    case RESET_REDIRECT:
+      return {
+        ...state,
+        redirect: action.redirect
       };
     default:
       return state;

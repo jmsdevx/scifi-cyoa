@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const submitChar = async (req, res) => {
-  const { username, data } = req.body;
+  const { username, data, charname } = req.body;
   const { color, race, archetype, fear, pet, family } = data;
 
   const db = req.app.get("db");
@@ -14,7 +14,8 @@ const submitChar = async (req, res) => {
       archetype,
       fear,
       pet,
-      family
+      family,
+      charname
     ]);
     console.log(response);
     res.status(200).json(response);
@@ -35,17 +36,6 @@ const getName = (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-  // try {
-  //   const response = await axios.get("https://uinames.com/api/region=albania", {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*"
-  //     }
-  //   });
-  //   res.status(200).json(response);
-  // } catch (err) {
-  //   res.status(500).json(err);
-  //   console.log(err);
-  // }
 };
 
 module.exports = {

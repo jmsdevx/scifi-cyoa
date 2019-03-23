@@ -2,6 +2,7 @@
 export const RESET_ERROR = "RESET_ERROR";
 export const RESET_USER = "RESET_USER";
 export const RESET_CHARACTER = "RESET_CHARACTER";
+export const RESET_REDIRECT = "RESET_REDIRECT";
 
 //sign up
 export const SIGN_UP_PENDING = "SIGN_UP_PENDING";

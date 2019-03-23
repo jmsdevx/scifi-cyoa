@@ -1,7 +1,13 @@
-import { charPending, charFilled, charRejected } from "./wizSync";
+import {
+  charPending,
+  charFilled,
+  charRejected,
+  resetCharacter,
+  resetRedirect
+} from "./wizSync";
 import axios from "axios";
 
-export function submitCharData(data, username) {
+export function submitCharData(data, username, charname) {
   return async dispatch => {
     await dispatch(charPending());
     console.log(data);
@@ -9,9 +15,12 @@ export function submitCharData(data, username) {
     try {
       const response = await axios.post("/wizard/submit", {
         data,
-        username: username
+        username: username,
+        charname: charname
       });
-      dispatch(charFilled(response));
+      await dispatch(charFilled(response));
+      // await dispatch(resetCharacter());
+      dispatch(resetRedirect());
     } catch {
       dispatch(charRejected());
     }
