@@ -9,8 +9,6 @@ import axios from "axios";
 export function submitCharData(data, username, charname) {
   return async dispatch => {
     await dispatch(charPending());
-    console.log(data);
-    console.log(username);
     try {
       const response = await axios.post("/wizard/submit", {
         data,

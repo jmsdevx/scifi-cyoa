@@ -9,7 +9,6 @@ import {
   SUBMIT_CHARACTER_FULFILLED,
   SUBMIT_CHARACTER_REJECTED,
   RESET_ERROR,
-  RESET_CHARACTER,
   RESET_REDIRECT
 } from "../constants";
 
@@ -78,12 +77,6 @@ export function resetError() {
   return {
     type: RESET_ERROR,
     error: false
-  };
-}
-
-export function resetCharacter() {
-  return {
-    type: RESET_CHARACTER
   };
 }
 

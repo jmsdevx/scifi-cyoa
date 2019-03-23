@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getUser } from "../ducks/auth/authAsync";
 import Layout from "./Layout";
 import { Link } from "react-router-dom";
+import CharContainer from "../components/dash/CharContainer";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -14,11 +15,12 @@ class Dashboard extends Component {
         {!this.props.user.username ? (
           this.props.history.push("/")
         ) : (
-          <h1>{this.props.user.username}'s Account</h1>
+          <h1>{this.props.user.username}'s Characters</h1>
         )}
         <Link to="/wizard/color">
           <button className="create">Create Character</button>
         </Link>
+        <CharContainer />
       </Layout>
     );
   }
