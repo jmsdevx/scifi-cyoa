@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { savePet } from "../../../ducks/wiz/wizSync";
 
 const Companion = props => (
-  <div>
+  <div className="choices">
     <h3>Companion: {props.pet ? props.pet : null}</h3>
     <button onClick={() => props.save("Bird")}>Bird</button>
     <button onClick={() => props.save("Dog")}>Dog</button>

@@ -25,7 +25,7 @@ class Archetype extends Component {
   render() {
     const { archetype } = this.props;
     return (
-      <div>
+      <div className="choices">
         <h3>
           Archetype:{" "}
           {archetype

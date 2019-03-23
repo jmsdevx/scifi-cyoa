@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { saveRace } from "../../../ducks/wiz/wizSync";
 
 const Race = props => (
-  <div>
+  <div className="choices">
     <h3>Race: {props.race ? props.race : null}</h3>
     <button onClick={() => props.save("Terran")}>Terran</button>
     <button onClick={() => props.save("Insect")}>Insect</button>

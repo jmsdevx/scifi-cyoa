@@ -1,13 +1,15 @@
 require("dotenv").config();
 const express = require("express");
 const { json } = require("body-parser");
+const cors = require("cors");
 const massive = require("massive");
 const session = require("express-session");
 const app = express();
 const { signup, login, getUser, logout } = require("./authController");
-const { submitChar } = require("./wizController");
+const { submitChar, getName } = require("./wizController");
 
 app.use(json());
+app.use(cors());
 
 app.use(
   session({
@@ -33,6 +35,7 @@ app.get("/auth/logout", logout);
 
 //characters endpoints
 app.post("/wizard/submit", submitChar);
+app.get("/wizard/name", getName);
 
 app.listen(4000, () => {
   console.log(`Listening on ${process.env.EXPRESS_PORT}`);

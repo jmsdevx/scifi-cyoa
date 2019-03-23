@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { saveColor } from "../../../ducks/wiz/wizSync";
 
 const Color = props => (
-  <div>
+  <div className="choices">
     <h3>Color: {props.color ? props.color : null} </h3>
     <button onClick={() => props.save("Red")}>Red</button>
     <button onClick={() => props.save("Blue")}>Blue</button>

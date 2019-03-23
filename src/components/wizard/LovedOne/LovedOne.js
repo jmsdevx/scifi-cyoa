@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import { saveFamily } from "../../../ducks/wiz/wizSync";
 
 const Family = props => (
-  <div>
+  <div className="choices">
     <h3>Connection: {props.family ? props.family : null}</h3>
     <button onClick={() => props.save("Mom")}>Mom</button>
     <button onClick={() => props.save("Dad")}>Dad</button>
     <button onClick={() => props.save("Brother")}>Brother</button>
     <button onClick={() => props.save("Sister")}>Sister</button>
-    <button onClick={() => props.save("Grandma")}>Grandpa</button>
+    <button onClick={() => props.save("Grandma")}>Grandma</button>
+    <button onClick={() => props.save("Grandpa")}>Grandpa</button>
     <button onClick={() => props.save("Uncle")}>Uncle</button>
     <button onClick={() => props.save("Aunt")}>Aunt</button>
     <button onClick={() => props.save("Cousin")}>Cousin</button>

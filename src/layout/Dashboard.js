@@ -17,7 +17,7 @@ class Dashboard extends Component {
           <h1>{this.props.user.username}'s Account</h1>
         )}
         <Link to="/wizard/color">
-          <button>Create Character</button>
+          <button className="create">Create Character</button>
         </Link>
       </Layout>
     );

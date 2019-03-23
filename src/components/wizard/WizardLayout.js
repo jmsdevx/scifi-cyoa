@@ -30,14 +30,12 @@ class WizardLayout extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wizLayout">
         <Link to="/dashboard">
-          <button>Home</button>
+          <button className="home">Home</button>
         </Link>
-        <h1>Choose:</h1>
-
         {wizardRoutes}
-        <div>
+        <div className="navigation">
           {this.state.index > 0 ? (
             <button onClick={() => this.navigate("back")}>Back</button>
           ) : null}
