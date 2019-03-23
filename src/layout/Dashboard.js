@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.getUser();
+    return this.props.user.username ? null : this.props.getUser();
   }
   render() {
     return (

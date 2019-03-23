@@ -35,7 +35,7 @@ export default function reducer(state = initialState, action) {
     case GET_USER_PENDING:
       return { ...state, pending: action.pending };
     case GET_USER_FULFILLED:
-      return { ...state, pending: action.pending, user: action.payload.data };
+      return { ...state, pending: action.pending, user: action.payload };
     case GET_USER_REJECTED:
       return {
         ...state,

@@ -42,12 +42,15 @@ export function tryLogin(username, password) {
   };
 }
 
+export function checkForUser() {}
+
 export function getUser() {
   return async dispatch => {
     await dispatch(getUserPending());
+
     try {
       const response = await axios.get("/auth/user");
-      dispatch(getUserFulfilled(response));
+      dispatch(getUserFulfilled(response.data));
     } catch {
       dispatch(getUserRejected());
     }

@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import Signup from "./SignUp";
 import Login from "./Login";
 import Modal from "./Modal";
-import { getUser, logout } from "../ducks/auth/authAsync";
+import { logout } from "../ducks/auth/authAsync";
 
 class Splash extends Component {
   constructor(props) {
@@ -64,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getUser: getUser, logout: logout }
+  { logout: logout }
 )(Splash);
