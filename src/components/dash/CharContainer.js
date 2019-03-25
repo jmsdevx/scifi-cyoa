@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllCharData } from "../../ducks/dash/dashAsync";
 import CharDisplay from "./CharDisplay";
+import { editChar } from "../../ducks/wiz/wizSync";
 
 class CharContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { searchInput: "" };
+    this.state = { searchInput: "", showInfo: false };
   }
 
   componentDidMount() {
@@ -17,7 +18,16 @@ class CharContainer extends Component {
     this.setState({ searchInput: val });
   };
 
+  showModal = () => {
+    this.setState({ showInfo: true });
+  };
+
+  closeModal = () => {
+    this.setState({ showInfo: false });
+  };
+
   render() {
+    console.log(this.props.allChars);
     const charDisplay = this.props.pending
       ? "loading!"
       : this.props.allChars
@@ -26,18 +36,26 @@ class CharContainer extends Component {
               .toLowerCase()
               .includes(this.state.searchInput.toLowerCase())
           )
-          .map(f => <CharDisplay key={f.id} charData={f} />);
+          .map(f => (
+            <CharDisplay
+              key={f.id}
+              charData={f}
+              showModal={this.showModal}
+              closeModal={this.closeModal}
+              showInfo={this.state.showInfo}
+              edit={this.props.edit}
+            />
+          ));
 
     return (
       <div className="mychars">
-        <h3>My Characters</h3>
         <input
           type="text"
           placeholder="search"
           value={this.state.searchInput}
           onChange={e => this.handleInput(e.target.value)}
         />
-        {charDisplay}
+        <div className="grid">{charDisplay}</div>
       </div>
     );
   }
@@ -54,5 +72,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getAll: getAllCharData }
+  { getAll: getAllCharData, edit: editChar }
 )(CharContainer);

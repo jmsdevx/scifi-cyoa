@@ -9,7 +9,8 @@ import {
   SUBMIT_CHARACTER_FULFILLED,
   SUBMIT_CHARACTER_REJECTED,
   RESET_ERROR,
-  RESET_REDIRECT
+  RESET_REDIRECT,
+  EDIT_CHAR
 } from "../constants";
 
 export function saveColor(choiceData) {
@@ -84,5 +85,13 @@ export function resetRedirect() {
   return {
     type: RESET_REDIRECT,
     redirect: false
+  };
+}
+
+export function editChar(data) {
+  return {
+    type: EDIT_CHAR,
+    payload: data,
+    update: true,
   };
 }

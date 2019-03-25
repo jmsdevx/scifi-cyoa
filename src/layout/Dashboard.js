@@ -12,14 +12,14 @@ class Dashboard extends Component {
   render() {
     return (
       <Layout>
-        {!this.props.user.username ? (
-          this.props.history.push("/")
-        ) : (
-          <h1>{this.props.user.username}'s Characters</h1>
-        )}
         <Link to="/wizard/color">
           <button className="create">Create Character</button>
         </Link>
+        {!this.props.user.username ? (
+          this.props.history.push("/")
+        ) : (
+          <h1 className="dashTitle">{this.props.user.username}'s Characters</h1>
+        )}
         <CharContainer />
       </Layout>
     );

@@ -57,25 +57,32 @@ class Review extends Component {
           <h4>Connection: </h4>
           <h5>{this.props.charData.family}</h5>
         </span>
-        <span>
-          <input
-            type="text"
-            placeholder="Name"
-            value={this.state.charName}
-            onChange={e => this.handleInput(e.target.value)}
-          />
-          <button className="random" onClick={this.getRandomName}>
-            Random
-          </button>
-        </span>
+        {this.props.charData.charname ? (
+          <h1>{this.props.charData.charname}</h1>
+        ) : (
+          <span>
+            <input
+              type="text"
+              placeholder="Name"
+              value={this.state.charName}
+              onChange={e => this.handleInput(e.target.value)}
+            />
+            <button className="random" onClick={this.getRandomName}>
+              Random
+            </button>
+          </span>
+        )}
         <button
           className="submit"
           onClick={() =>
-            this.state.charName
+            this.state.charName || this.props.charData.charname
               ? this.props.submit(
                   this.props.charData,
                   this.props.username,
                   this.state.charName
+                    ? this.state.charname
+                    : this.props.charData.charname,
+                  this.props.update
                 )
               : alert("Please name your character!")
           }
@@ -95,7 +102,8 @@ const mapStateToProps = state => {
     pending: state.wizReducer.pending,
     error: state.wizReducer.error,
     username: state.authReducer.user.username,
-    redirect: state.wizReducer.redirect
+    redirect: state.wizReducer.redirect,
+    update: state.wizReducer.update
   };
 };
 
