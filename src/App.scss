@@ -63,22 +63,31 @@ nav {
 }
 
 .modal {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: $dark;
+  // position: fixed;
+  // height: 100vh;
+  // width: 100vw;
+  // background: $dark;
 
   .main {
     position: fixed;
     background: $light;
     width: 80%;
     height: auto;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 5%;
+    padding: 1rem;
+
+    .logtitle {
+      color: $dark;
+      // padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
   }
 
   button {
@@ -93,6 +102,7 @@ nav {
   input {
     height: 3rem;
     font-size: 1rem;
+    margin: 0.2rem;
   }
 
   .closebutton {
@@ -222,7 +232,7 @@ nav {
   }
 
   .grid {
-    border: 1px solid whitesmoke;
+    border: 3px solid whitesmoke;
     width: 90%;
     height: 45vh;
     overflow-y: auto;
@@ -235,9 +245,51 @@ nav {
     justify-content: space-between;
     padding: 0.5rem;
 
-    button {
+    .view {
       height: 1.5rem;
       width: 3rem;
+    }
+  }
+}
+
+.editview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: $action;
+    text-decoration: underline overline dotted $dark;
+    font-size: 3rem;
+    width: 100%;
+  }
+
+  h4 {
+    color: $dark;
+    text-decoration: underline;
+    font-size: 1.1rem;
+  }
+
+  h5 {
+    color: $action;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+  }
+
+  .update {
+    width: 80%;
+    margin: 1rem 0;
+    button {
+      height: 2rem;
+      width: 4rem;
     }
   }
 }

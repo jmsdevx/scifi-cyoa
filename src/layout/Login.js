@@ -37,6 +37,7 @@ class Login extends Component {
     }
     return (
       <div>
+        <h1 className="logtitle">Log In</h1>
         <form className="form" onSubmit={this.handleSubmit}>
           <input
             value={this.state.username}

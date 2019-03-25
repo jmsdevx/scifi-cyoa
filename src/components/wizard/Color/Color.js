@@ -8,7 +8,9 @@ const Color = props => (
     <button onClick={() => props.save("Red")}>Red</button>
     <button onClick={() => props.save("Blue")}>Blue</button>
     <button onClick={() => props.save("Green")}>Green</button>
+    <button onClick={() => props.save("Orange")}>Orange</button>
     <button onClick={() => props.save("Yellow")}>Yellow</button>
+    <button onClick={() => props.save("Purple")}>Purple</button>
   </div>
 );
 

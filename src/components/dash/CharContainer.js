@@ -62,7 +62,7 @@ class CharContainer extends Component {
       <div className="mychars">
         <input
           type="text"
-          placeholder="search"
+          placeholder="search..."
           value={this.state.searchInput}
           onChange={e => this.handleInput(e.target.value)}
         />

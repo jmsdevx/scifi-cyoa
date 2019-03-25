@@ -37,6 +37,7 @@ class Signup extends Component {
     }
     return (
       <div>
+        <h1 className="logtitle">Sign Up</h1>
         <form className="form" onSubmit={this.handleSubmit}>
           <input
             value={this.state.username}
