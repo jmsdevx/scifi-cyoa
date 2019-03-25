@@ -7,7 +7,7 @@ import { editChar } from "../../ducks/wiz/wizSync";
 class CharContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { searchInput: "", showInfo: false };
+    this.state = { searchInput: "", showInfo: false, showID: "" };
   }
 
   componentDidMount() {
@@ -24,12 +24,12 @@ class CharContainer extends Component {
     this.setState({ searchInput: val });
   };
 
-  showModal = () => {
-    this.setState({ showInfo: true });
+  showModal = id => {
+    this.setState({ showInfo: true, showID: id });
   };
 
   closeModal = () => {
-    this.setState({ showInfo: false });
+    this.setState({ showInfo: false, showID: "" });
   };
 
   render() {
@@ -45,7 +45,7 @@ class CharContainer extends Component {
             console.log(f);
             return (
               <CharDisplay
-                key={f.id}
+                key={j}
                 charData={f}
                 showModal={this.showModal}
                 closeModal={this.closeModal}
@@ -53,6 +53,7 @@ class CharContainer extends Component {
                 edit={this.props.edit}
                 delete={this.props.delete}
                 username={this.props.user.username}
+                showID={this.state.showID}
               />
             );
           });

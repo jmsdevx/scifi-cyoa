@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const CharDisplay = props => (
   <div className="chars">
     <h3>{props.charData.charname}</h3>
-    <button onClick={props.showModal}>View</button>
-    {props.showInfo ? (
+    <button onClick={() => props.showModal(props.charData.id)}>View</button>
+    {props.showInfo === true && props.showID === props.charData.id ? (
       <Modal handleClose={props.closeModal}>
         {console.log(props.charData)}
         <div>
