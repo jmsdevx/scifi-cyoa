@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllCharData } from "../../ducks/dash/dashAsync";
+import { getAllCharData, deleteChar } from "../../ducks/dash/dashAsync";
 import CharDisplay from "./CharDisplay";
 import { editChar } from "../../ducks/wiz/wizSync";
 
@@ -12,6 +12,12 @@ class CharContainer extends Component {
 
   componentDidMount() {
     this.props.getAll(this.props.user.username);
+  }
+
+  componentDidUpate(prevProps) {
+    if (this.props.allChars !== prevProps.allChars) {
+      this.setState({ showInfo: false });
+    }
   }
 
   handleInput = val => {
@@ -27,7 +33,6 @@ class CharContainer extends Component {
   };
 
   render() {
-    console.log(this.props.allChars);
     const charDisplay = this.props.pending
       ? "loading!"
       : this.props.allChars
@@ -36,16 +41,21 @@ class CharContainer extends Component {
               .toLowerCase()
               .includes(this.state.searchInput.toLowerCase())
           )
-          .map(f => (
-            <CharDisplay
-              key={f.id}
-              charData={f}
-              showModal={this.showModal}
-              closeModal={this.closeModal}
-              showInfo={this.state.showInfo}
-              edit={this.props.edit}
-            />
-          ));
+          .map((f, j) => {
+            console.log(f);
+            return (
+              <CharDisplay
+                key={f.id}
+                charData={f}
+                showModal={this.showModal}
+                closeModal={this.closeModal}
+                showInfo={this.state.showInfo}
+                edit={this.props.edit}
+                delete={this.props.delete}
+                username={this.props.user.username}
+              />
+            );
+          });
 
     return (
       <div className="mychars">
@@ -72,5 +82,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getAll: getAllCharData, edit: editChar }
+  { getAll: getAllCharData, edit: editChar, delete: deleteChar }
 )(CharContainer);

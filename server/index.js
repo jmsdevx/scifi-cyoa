@@ -7,7 +7,7 @@ const session = require("express-session");
 const app = express();
 const { signup, login, getUser, logout } = require("./authController");
 const { submitChar, getName } = require("./wizController");
-const { getAllChars } = require("./dashController");
+const { getAllChars, deleteChar } = require("./dashController");
 
 app.use(json());
 app.use(cors());
@@ -40,6 +40,7 @@ app.get("/wizard/name", getName);
 
 //dash endpoints
 app.get("/:username/characters/all", getAllChars);
+app.delete("/:username/characters/:id", deleteChar);
 
 app.listen(4000, () => {
   console.log(`Listening on ${process.env.EXPRESS_PORT}`);

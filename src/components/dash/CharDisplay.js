@@ -8,6 +8,7 @@ const CharDisplay = props => (
     <button onClick={props.showModal}>View</button>
     {props.showInfo ? (
       <Modal handleClose={props.closeModal}>
+        {console.log(props.charData)}
         <div>
           <h1>{props.charData.charname}</h1>
           <h3 className="title">Review</h3>
@@ -38,7 +39,15 @@ const CharDisplay = props => (
           <Link to="wizard/color" onClick={() => props.edit(props.charData)}>
             <button>Edit</button>
           </Link>
-          <button>Delete</button>
+          <button
+            onClick={() =>
+              props
+                .delete(props.charData.id, props.username)
+                .then(props.closeModal)
+            }
+          >
+            Delete
+          </button>
         </div>
       </Modal>
     ) : null}

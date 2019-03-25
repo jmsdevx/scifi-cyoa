@@ -16,3 +16,15 @@ export function getAllCharData(username) {
     }
   };
 }
+
+export function deleteChar(id, username) {
+  return async dispatch => {
+    await dispatch(getAllCharsPending());
+    try {
+      const response = await axios.delete(`/${username}/characters/${id}`);
+      dispatch(getAllCharsFilled(response));
+    } catch {
+      dispatch(getAllCharsRejected());
+    }
+  };
+}

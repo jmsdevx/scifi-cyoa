@@ -13,7 +13,7 @@ const submitChar = async (req, res) => {
   if (!update) {
     try {
       const response = await db.submitChar([
-        id,
+        username,
         color,
         race,
         archetype,

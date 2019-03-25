@@ -80,7 +80,7 @@ class Review extends Component {
                   this.props.charData,
                   this.props.username,
                   this.state.charName
-                    ? this.state.charname
+                    ? this.state.charName
                     : this.props.charData.charname,
                   this.props.update
                 )
